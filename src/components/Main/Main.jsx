@@ -1,15 +1,23 @@
 import { useContext } from "react";
 import { assets } from "../../assets/assets";
-import './Main.css';
+import "./Main.css";
 import { context } from "../../context/Context";
 
 const Main = () => {
-
-  const value = (id)=>{
+  const value = (id) => {
     let paragraphText = document.getElementById(id).textContent;
-    onSent(paragraphText)
-  }
-  const {onSent,recentPrompt,showResult,loading,resultData,input,setInput,setIsOpen} = useContext(context)
+    onSent(paragraphText);
+  };
+  const {
+    onSent,
+    recentPrompt,
+    showResult,
+    loading,
+    resultData,
+    input,
+    setInput,
+    setIsOpen,
+  } = useContext(context);
   return (
     <div className="main">
       <div className="nav">
@@ -36,8 +44,10 @@ const Main = () => {
                   <hr />
                   <hr />
                 </div>
-              ) : (
+              ) : resultData && resultData.trim() !== "" ? (
                 <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+              ) : (
+                <p className="no-response">No response from API</p>
               )}
             </div>
           </div>
@@ -84,8 +94,8 @@ const Main = () => {
               placeholder="Enter prompt"
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
+              {/* <img src={assets.gallery_icon} alt="" />
+              <img src={assets.mic_icon} alt="" /> */}
               <img onClick={() => onSent()} src={assets.send_icon} alt="" />
             </div>
           </div>

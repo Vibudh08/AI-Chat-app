@@ -31,7 +31,7 @@
 
 .main .greet{
     margin: 50px 0px;
-    font-size: 65px;
+    font-size: 50px;
     color: #c4c7c5;
     font-weight: 500;
     padding: 20px;
@@ -53,7 +53,7 @@
 }
 
 .main .card{
-    height: 200px;
+    height: 170px;
     padding: 15px;
     background-color: #f0f4f9;
     border-radius: 10px;
@@ -212,6 +212,14 @@
     margin-left: 10px;
     cursor: pointer;
 }
+
+.no-response {
+  color: #666;        /* halka gray */
+  /* font-style: italic; italic text */
+  font-size: 14px;    /* thoda chhota size */
+  /* margin-top: 8px;    thoda upar se gap */
+}
+
 
 @keyframes loader {
     0%{

@@ -27,17 +27,18 @@ const generationConfig = {
 };
 
 async function run(prompt) {
-  const chatSession = model.startChat({
-    generationConfig,
- // safetySettings: Adjust safety settings
- // See https://ai.google.dev/gemini-api/docs/safety-settings
-    history: [
-    ],
-  });
+  try {
+    const chatSession = model.startChat({
+      generationConfig,
+      history: [],
+    });
 
-  const result = await chatSession.sendMessage(prompt);
-  console.log(result.response.text());
-  return result.response.text()
+    const result = await chatSession.sendMessage(prompt);
+    return result.response.text();
+  } catch (err) {
+    console.error("API Error:", err);
+    return ""; // empty string bhej do
+  }
 }
 
 export default run;
